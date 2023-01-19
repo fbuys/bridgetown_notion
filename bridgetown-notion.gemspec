@@ -5,16 +5,15 @@ require_relative "lib/bridgetown-notion/version"
 Gem::Specification.new do |spec|
   spec.name          = "bridgetown-notion"
   spec.version       = BridgetownNotion::VERSION
-  spec.author        = "Bridgetown Team"
-  spec.email         = "maintainers@bridgetownrb.com"
-  spec.summary       = "Sample code for creating new Bridgetown plugins"
-  spec.homepage      = "https://github.com/username/bridgetown-notion"
+  spec.author        = "Francois Buys"
+  spec.email         = "buys.fran@gmail.com"
+  spec.summary       = "Integrates with Notion so we can use notion like a CMS"
+  spec.homepage      = "https://github.com/fbuys/bridgetown-notion"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r!^(test|script|spec|features|frontend)/!) }
   spec.test_files    = spec.files.grep(%r!^test/!)
   spec.require_paths = ["lib"]
-  spec.metadata      = { "yarn-add" => "bridgetown-notion@#{BridgetownNotion::VERSION}" }
 
   spec.required_ruby_version = ">= 2.7.0"
 
