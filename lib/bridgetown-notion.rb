@@ -2,6 +2,7 @@
 
 require "bridgetown"
 require "bridgetown-notion/builder"
+require "notion-ruby-client"
 
 Bridgetown::PluginManager.new_source_manifest(
   origin: BridgetownNotion,
