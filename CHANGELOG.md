@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- 
+
+## [0.1.0] - 2023-02-04
+
+### Added
+
 - Retrieved basic frontmatter from Notion.
 - Retrieve headings, paragraphs and bullet list content from Notion.
-
-## [0.1.0] - YYYY-MM-DD
-
-- coming soon...
+- Created post resources based on the retrieved data.
