@@ -15,19 +15,22 @@ module BridgetownNotion
           categories = (post.dig("properties", "categories", "multi_select") || []).map { |c| c["name"] }.join(" ")
           tags = (post.dig("properties", "tags", "multi_select") || []).map { |t| t["name"] }.join(" ")
           is_published = post["properties"]["published"]["checkbox"]
+          published_at = post.dig("properties", "published_at", "date", "start")
 
-          add_resource :posts, "2020-05-17-#{title}.md" do
-            author "rlstevenson"
-            categories categories
-            content "It's pretty _nifty_ that you can add **new blog posts** this way. <%= resource.data %>"
-            layout :post
-            published is_published
-            tags tags
-            title title
-          end
-          client.block_children(block_id: post.id) do |blocks_page|
-            blocks_page.results.each do |block|
-              # pp block
+          if published_at
+            add_resource :posts, "#{published_at}-#{title}.md" do
+              author "rlstevenson"
+              categories categories
+              content "It's pretty _nifty_ that you can add **new blog posts** this way. <%= resource.data %>"
+              layout :post
+              published is_published
+              tags tags
+              title title
+            end
+            client.block_children(block_id: post.id) do |blocks_page|
+              blocks_page.results.each do |block|
+                # pp block
+              end
             end
           end
           Bridgetown.logger.info "################################"
