@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require_relative "lib/bridgetown-notion/version"
+require_relative "lib/bridgetown_notion/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "bridgetown-notion"
+  spec.name          = "bridgetown_notion"
   spec.version       = BridgetownNotion::VERSION
   spec.author        = "Francois Buys"
   spec.email         = "buys.fran@gmail.com"
   spec.summary       = "Integrates with Notion so we can use notion like a CMS"
-  spec.homepage      = "https://github.com/fbuys/bridgetown-notion"
+  spec.homepage      = "https://github.com/fbuys/bridgetown_notion"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r!^(test|script|spec|features|frontend)/!) }
