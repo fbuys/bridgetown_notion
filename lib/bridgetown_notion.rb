@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "bridgetown"
-require "bridgetown-notion/builder"
+require "bridgetown_notion/builder"
 require "notion-ruby-client"
 
 Bridgetown::PluginManager.new_source_manifest(
