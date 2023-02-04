@@ -4,7 +4,7 @@ require "minitest/autorun"
 require "minitest/reporters"
 require "shoulda"
 require "bridgetown"
-require File.expand_path("../lib/bridgetown-notion", __dir__)
+require File.expand_path("../lib/bridgetown_notion", __dir__)
 
 Bridgetown.logger.log_level = :error
 
