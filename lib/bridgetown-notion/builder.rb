@@ -4,12 +4,12 @@ module BridgetownNotion
   class Builder < Bridgetown::Builder
     def build
       Notion.configure do |config|
-        config.token = NOTION_KEY
+        config.token = ENV.fetch("NOTION_KEY")
       end
 
       client = Notion::Client.new
 
-      client.database_query(database_id: NOTION_DB_ID) do |posts_page|
+      client.database_query(database_id: ENV.fetch("NOTION_DB_ID")) do |posts_page|
         posts_page.results.each do |post|
           title = post.dig("properties", "title", "title", 0, "text", "content")
           categories = (post.dig("properties", "categories", "multi_select") || [])
