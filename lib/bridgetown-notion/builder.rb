@@ -11,9 +11,11 @@ module BridgetownNotion
 
       client.database_query(database_id: NOTION_DB_ID) do |posts_page|
         posts_page.results.each do |post|
-          categories = (post.dig("properties", "categories", "multi_select") || []).map { |c| c["name"] }.join(" ")
-          tags = (post.dig("properties", "tags", "multi_select") || []).map { |t| t["name"] }.join(" ")
           title = post.dig("properties", "title", "title", 0, "text", "content")
+          categories = (post.dig("properties", "categories", "multi_select") || [])
+            .map { |c| c["name"] }.join(" ")
+          tags = (post.dig("properties", "tags", "multi_select") || [])
+            .map { |t| t["name"] }.join(" ")
           is_published = post["properties"]["published"]["checkbox"]
           published_at = post.dig("properties", "published_at", "date", "start")
           content = ""
