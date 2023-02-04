@@ -10,24 +10,27 @@ module BridgetownNotion
       client = Notion::Client.new
 
       client.database_query(database_id: NOTION_DB_ID) do |posts_page|
-        posts_page.results.each do |post|  
-          title = post['properties']['Title']['title'][0]['text']['content']
+        posts_page.results.each do |post|
+          title = post["properties"]["Title"]["title"][0]["text"]["content"]
+          is_published = post["properties"]["published"]["checkbox"]
+
           add_resource :posts, "2020-05-17-#{title}.md" do
             layout :post
             title title
+            published is_published
             author "rlstevenson"
-            content "It's pretty _nifty_ that you can add **new blog posts** this way."
+            content "It's pretty _nifty_ that you can add **new blog posts** this way. <%= resource.data %>"
           end
           client.block_children(block_id: post.id) do |blocks_page|
-            blocks_page.results.each do |block|  
-              pp block
+            blocks_page.results.each do |block|
+              # pp block
             end
           end
-          puts '################################'
+          Bridgetown.logger.info "################################"
         end
       end
 
-      puts client
+      # Bridgetown.logger.info client
     end
   end
 end
