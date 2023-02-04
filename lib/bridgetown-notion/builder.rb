@@ -14,7 +14,7 @@ module BridgetownNotion
           title = post['properties']['Title']['title'][0]['text']['content']
           add_resource :posts, "2020-05-17-#{title}.md" do
             layout :post
-            title "Way to Go, Bridgetown!"
+            title title
             author "rlstevenson"
             content "It's pretty _nifty_ that you can add **new blog posts** this way."
           end
