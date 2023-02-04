@@ -11,21 +11,4 @@ class TestBridgetownNotion < Bridgetown::TestCase
                                    "quiet"       => true
                                  ))
   end
-
-  context "sample plugin" do
-    setup do
-      with_metadata title: "My Awesome Site" do
-        @site.process
-        @contents = File.read(dest_dir("index.html"))
-      end
-    end
-
-    should "output the overridden metadata" do
-      assert_includes @contents, "<title>My Awesome Site</title>"
-    end
-
-    should "output the sample Liquid tag" do
-      assert_includes @contents, "This plugin works!"
-    end
-  end
 end
