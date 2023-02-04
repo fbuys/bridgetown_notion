@@ -2,6 +2,7 @@
 
 module BridgetownNotion
   class Builder < Bridgetown::Builder
+    # rubocop:disable Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/PerceivedComplexity, Metrics/MethodLength
     def build
       Notion.configure do |config|
         config.token = ENV.fetch("NOTION_KEY")
@@ -39,9 +40,11 @@ module BridgetownNotion
         end
       end
     end
+    # rubocop:enable Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/PerceivedComplexity, Metrics/MethodLength
 
     private
 
+    # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
     def extract_content(block)
       result = block.dig("heading_1", "rich_text", 0, "text", "content")
       return "# #{result}\n" if result
@@ -69,6 +72,7 @@ module BridgetownNotion
 
       "\n"
     end
+    # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   end
 end
 
