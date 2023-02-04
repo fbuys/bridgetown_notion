@@ -17,6 +17,7 @@ mkmf.log
 Gemfile.lock
 .bundle
 .ruby-version
+.tool-versions
 
 # Node
 node_modules
