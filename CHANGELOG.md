@@ -1,4 +1,4 @@
-# Changelog for bridgetown-notion
+# Changelog for bridgetown_notion
 
 All notable changes to this project will be documented in this file.
 
