@@ -4,13 +4,16 @@ module BridgetownNotion
   class Builder < Bridgetown::Builder
     # rubocop:disable Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/PerceivedComplexity, Metrics/MethodLength
     def build
-      Notion.configure do |config|
-        config.token = ENV.fetch("NOTION_KEY")
+      notion_key = config.bridgetown_notion.notion_key
+      notion_db_id = config.bridgetown_notion.notion_db_id
+
+      Notion.configure do |notion|
+        notion.token = notion_key
       end
 
       client = Notion::Client.new
 
-      client.database_query(database_id: ENV.fetch("NOTION_DB_ID")) do |posts_page|
+      client.database_query(database_id: notion_db_id) do |posts_page|
         posts_page.results.each do |post|
           title = post.dig("properties", "title", "title", 0, "text", "content")
           categories = (post.dig("properties", "categories", "multi_select") || [])
