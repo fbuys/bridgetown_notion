@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- 
+### Added
+
+- Add new initializer config, backward compatible with previous implementation.
 
 ## [0.1.0] - 2023-02-04
 
