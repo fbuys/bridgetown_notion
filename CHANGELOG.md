@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add new initializer config, backward compatible with previous implementation.
 
+### Fixed
+
+- Fix invalid URI bug. By returning a slug property from the posts factory we can ensure
+that we don't attempt to create posts with spaces in the file name.
+
 ## [0.1.0] - 2023-02-04
 
 ### Added
