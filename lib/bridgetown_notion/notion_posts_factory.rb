@@ -24,6 +24,7 @@ module BridgetownNotion
             .map { |t| t["name"] }.join(" ")
           is_published = post["properties"]["published"]["checkbox"]
           published_at = post.dig("properties", "published_at", "date", "start")
+          slug = "#{published_at}-#{title}".downcase.strip.tr(" ", "-").gsub(%r/[^\w-]/, "")
           content = ""
 
           next if published_at.nil? || title.nil?
@@ -35,11 +36,12 @@ module BridgetownNotion
           end
 
           result.push({
-            title: title,
             categories: categories,
-            tags: tags,
-            is_published: is_published,
             content: content,
+            is_published: is_published,
+            slug: slug,
+            tags: tags,
+            title: title,
           })
         end
       end

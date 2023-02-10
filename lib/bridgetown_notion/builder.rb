@@ -6,7 +6,7 @@ module BridgetownNotion
   class Builder < Bridgetown::Builder
     def build
       BridgetownNotion::NotionPostsFactory.create_posts(config.bridgetown_notion).each do |post|
-        add_resource :posts, "#{post[:published_at]}-#{post[:title]}.md" do
+        add_resource :posts, "#{post[:slug]}.md" do
           categories post[:categories]
           content post[:content]
           layout :post
