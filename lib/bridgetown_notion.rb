@@ -3,6 +3,10 @@
 require "bridgetown"
 require "bridgetown_notion/builder"
 require "notion-ruby-client"
+require "zeitwerk"
+
+loader = Zeitwerk::Loader.for_gem
+loader.setup
 
 Bridgetown.initializer :bridgetown_notion do |config, notion_key:, notion_db_id:|
   config.bridgetown_notion ||= {}
