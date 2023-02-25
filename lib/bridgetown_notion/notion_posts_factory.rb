@@ -29,10 +29,10 @@ module BridgetownNotion
 
           result.push({
             categories: parsed_post.categories,
-            content: tmp_parsed_post.content,
-            is_published: tmp_parsed_post.is_published,
-            slug: tmp_parsed_post.slug,
             tags: tmp_parsed_post.tags,
+            content: tmp_parsed_post.content,
+            is_published: parsed_post.is_published,
+            slug: tmp_parsed_post.slug,
             title: parsed_post.title,
           })
         end
