@@ -21,16 +21,18 @@ module BridgetownNotion
             post.blocks = [*post.blocks, *blocks_page.results]
           end
 
-          parsed_post = BridgetownNotion::Parsers::PostParser.tmp_parse(post)
+          tmp_parsed_post = BridgetownNotion::Parsers::PostParser.tmp_parse(post)
+          parsed_post = BridgetownNotion::Parsers::PostParser.parse(post)
+          
 
-          next if parsed_post.published_at.nil? || parsed_post.title.nil?
+          next if tmp_parsed_post.published_at.nil? || parsed_post.title.nil?
 
           result.push({
-            categories: parsed_post.categories,
-            content: parsed_post.content,
-            is_published: parsed_post.is_published,
-            slug: parsed_post.slug,
-            tags: parsed_post.tags,
+            categories: tmp_parsed_post.categories,
+            content: tmp_parsed_post.content,
+            is_published: tmp_parsed_post.is_published,
+            slug: tmp_parsed_post.slug,
+            tags: tmp_parsed_post.tags,
             title: parsed_post.title,
           })
         end
