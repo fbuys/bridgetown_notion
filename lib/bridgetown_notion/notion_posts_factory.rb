@@ -28,7 +28,7 @@ module BridgetownNotion
           next if tmp_parsed_post.published_at.nil? || parsed_post.title.nil?
 
           result.push({
-            categories: tmp_parsed_post.categories,
+            categories: parsed_post.categories,
             content: tmp_parsed_post.content,
             is_published: tmp_parsed_post.is_published,
             slug: tmp_parsed_post.slug,
