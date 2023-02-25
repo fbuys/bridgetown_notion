@@ -1,5 +1,6 @@
 ---
-layout: default
 ---
+{% for post in collections.posts.resources %}
+  <h2>{{ post.data.title }}</h2>
+{% endfor %}
 
-Testing this plugin: {% sample_plugin %}
