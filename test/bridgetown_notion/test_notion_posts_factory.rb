@@ -334,16 +334,16 @@ class TestNotionPostsFactory < Bridgetown::TestCase
             }, {
               "id"   => "category-2-uuid",
               "name" => "c2",
-            }],
+            },],
           },
-          "tags"   => {
+          "tags"         => {
             "multi_select" => [{
               "id"   => "tag-1-uuid",
               "name" => "t1",
             }, {
               "id"   => "tag-2-uuid",
               "name" => "t2",
-            }],
+            },],
           },
         },
       }]
