@@ -20,9 +20,6 @@ module BridgetownNotion
           "BridgetownNotion::MarkdownGenerators::#{block_type.camelize}MarkdownGenerator"
         ).generate(content)
       rescue StandardError
-        result = block.dig("heading_6", "rich_text", 0, "text", "content")
-        return "###### #{result}\n" if result
-
         result = block.dig("paragraph", "rich_text", 0, "text", "content")
         return "#{result}\n" if result
 
