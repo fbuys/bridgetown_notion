@@ -23,6 +23,10 @@ class TestContentParser < Bridgetown::TestCase
             "heading_4" => {
               "rich_text" => [{ "text" => { "content" => "Heading 4" } }],
             },
+          }, {
+            "heading_5" => {
+              "rich_text" => [{ "text" => { "content" => "Heading 5" } }],
+            },
           },],
         }
         expected_markdown = <<~MARKDOWN
@@ -30,6 +34,7 @@ class TestContentParser < Bridgetown::TestCase
           ## Heading 2
           ### Heading 3
           #### Heading 4
+          ##### Heading 5
         MARKDOWN
 
         result = BridgetownNotion::Parsers::ContentParser.parse(post)
