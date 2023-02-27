@@ -22,9 +22,6 @@ module BridgetownNotion
         ).generate(content)
       rescue StandardError
 
-        result = block.dig("heading_4", "rich_text", 0, "text", "content")
-        return "#### #{result}\n" if result
-
         result = block.dig("heading_5", "rich_text", 0, "text", "content")
         return "##### #{result}\n" if result
 
