@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "bridgetown", ">= 1.0", "< 2.0"
   spec.add_dependency "notion-ruby-client",  ">= 1.0", "< 2.0"
+  spec.add_dependency "activesupport"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake", ">= 13.0"

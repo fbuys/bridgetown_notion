@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "active_support/core_ext/string/inflections"
+
 module BridgetownNotion
   module Parsers
     Post = Struct.new(:categories, :content, :is_published, :slug, :tags, :title, :published_at)
@@ -14,20 +16,14 @@ module BridgetownNotion
       end
 
       def method_missing(method_name)
-        property = snake_case_to_camel_case(method_name)
-        Object.const_get("BridgetownNotion::Parsers::#{property}Parser").parse(@post)
+        parser = method_name.to_s.camelize
+        Object.const_get("BridgetownNotion::Parsers::#{parser}Parser").parse(@post)
       end
 
       def respond_to_missing?(method_name)
         Dir["./**/*.rb"].each do |f|
           return true if f.include?(method_name)
         end
-      end
-
-      private
-
-      def snake_case_to_camel_case(string)
-        string.to_s.downcase.gsub(%r{[^\w]}, "").split("_").collect(&:capitalize).join
       end
     end
   end
