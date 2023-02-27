@@ -11,10 +11,20 @@ class TestContentParser < Bridgetown::TestCase
             "heading_1" => {
               "rich_text" => [{ "text" => { "content" => "Heading 1" } }],
             },
-          }],
+          }, {
+            "heading_2" => {
+              "rich_text" => [{ "text" => { "content" => "Heading 2" } }],
+            },
+          },],
         }
+        expected_markdown = <<~MARKDOWN
+          # Heading 1
+          ## Heading 2
+        MARKDOWN
+
         result = BridgetownNotion::Parsers::ContentParser.parse(post)
-        assert_equal "# Heading 1\n", result
+
+        assert_equal expected_markdown, result
       end
 
       it "returns an empty string by default" do
