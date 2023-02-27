@@ -21,7 +21,7 @@ module BridgetownNotion
       end
 
       def respond_to_missing?(method_name)
-        Dir["./**/*.rb"].each do |f|
+        Dir["./**/*_parser.rb"].each do |f|
           return true if f.include?(method_name)
         end
       end
