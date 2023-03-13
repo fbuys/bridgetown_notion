@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module BridgetownNotion
   module Parsers
     class BlockParser
@@ -12,7 +13,9 @@ module BridgetownNotion
 
       private_class_method def self.for_each_block_type
         pattern = %r{(?<block_type>\w+)(?!.*/)_markdown_generator.rb}
-        markdown_generator_files = Dir["#{File.dirname(__FILE__)}/../markdown_generators/**/*_markdown_generator.rb"]
+        markdown_generator_files = Dir[
+          "#{File.dirname(__FILE__)}/../markdown_generators/**/*_markdown_generator.rb"
+        ]
         markdown_generator_files.each do |file|
           yield file.match(pattern)[:block_type].to_s
         end

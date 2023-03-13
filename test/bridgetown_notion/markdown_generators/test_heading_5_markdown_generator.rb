@@ -13,4 +13,3 @@ class TestHeading5MarkdownGenerator < Bridgetown::TestCase
     end
   end
 end
-

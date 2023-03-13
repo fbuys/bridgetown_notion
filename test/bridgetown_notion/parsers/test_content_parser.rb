@@ -3,6 +3,7 @@
 require_relative "../../helper"
 
 class TestContentParser < Bridgetown::TestCase
+  # rubocop:disable Metrics/BlockLength
   describe BridgetownNotion::Parsers::ContentParser do
     describe "#parse" do
       it "returns markdown representation of blocks" do
@@ -63,4 +64,5 @@ class TestContentParser < Bridgetown::TestCase
       end
     end
   end
+  # rubocop:enable Metrics/BlockLength
 end
