@@ -17,20 +17,21 @@ $ bundle add bridgetown_notion
 ```ruby
 Bridgetown.configure do |config|
   init :bridgetown_notion do
-    notion_key ENV.fetch('NOTION_KEY') || 'notion-integration-key'
-    notion_db_id ENV.fetch('NOTION_DB_ID') || 'notion-database-id'
+    notion_key '<your-notion-connection-key>'
+    notion_db_id '<your-notion-db-id>'
   end
 end
 ```
 
+You should consider using environment variables to store the `notion_key` and `notion_db_id`.
+It is generally a bad practice to store credentials in version control.
 
 ## Usage
 
-The plugin will…
-
 ### Notion Setup
 
-bridgetown_notion assumes that you have a Notion database table with the following fileds:
+[bridgetown_notion](https://github.com/fbuys/bridgetown_notion) assumes that you have a Notion
+database table with the following fileds:
 
 | Field | Type |
 |-|-|
