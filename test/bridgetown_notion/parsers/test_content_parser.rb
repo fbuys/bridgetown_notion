@@ -35,6 +35,10 @@ class TestContentParser < Bridgetown::TestCase
             "paragraph" => {
               "rich_text" => [{ "text" => { "content" => "Paragraph text." } }],
             },
+          }, {
+            "bulleted_list_item" => {
+              "rich_text" => [{ "text" => { "content" => "List item text." } }],
+            },
           },],
         }
         expected_markdown = <<~MARKDOWN
@@ -45,6 +49,7 @@ class TestContentParser < Bridgetown::TestCase
           ##### Heading 5
           ###### Heading 6
           Paragraph text.
+          - List item text.
         MARKDOWN
 
         result = BridgetownNotion::Parsers::ContentParser.parse(post)
