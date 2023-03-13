@@ -4,8 +4,6 @@ require "active_support/core_ext/string/inflections"
 
 module BridgetownNotion
   module Parsers
-    Post = Struct.new(:categories, :content, :is_published, :slug, :tags, :title, :published_at)
-
     class PostParser
       def initialize(post)
         @post = post
