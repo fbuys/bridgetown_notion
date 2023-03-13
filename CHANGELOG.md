@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2023-03-13
+
 ### Added
 
-- Add new initializer config, backward compatible with previous implementation.
+- Add new initializer config, backwards compatible with previous env implementation.
+- Add activesupport dependecy for help with changing letter cases.
 
 ### Fixed
 

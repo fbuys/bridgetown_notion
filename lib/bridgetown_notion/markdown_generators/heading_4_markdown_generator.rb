@@ -9,4 +9,3 @@ module BridgetownNotion
     end
   end
 end
-
